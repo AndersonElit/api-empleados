@@ -29,7 +29,7 @@ public class SolicitudEntity {
     @Column(name = "resumen")
     private String resumen;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name="id_empleado")
     private EmpleadoEntity empleado;
 

@@ -8,7 +8,9 @@ import com.apiempeados.core.solicitud.responses.SolicitudResponse;
 import com.apiempeados.usecases.ports.SolicitudPort;
 import lombok.AllArgsConstructor;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @AllArgsConstructor
 public class SolicitudAdapter implements SolicitudPort {
@@ -39,6 +41,20 @@ public class SolicitudAdapter implements SolicitudPort {
                 .resumen(solicitud.getResumen())
                 .empleado(solicitud.getEmpleado().getNombre())
                 .build();
+    }
+
+    @Override
+    public List<SolicitudResponse> listaSolicitudes() {
+        List<Solicitud> listaSolicitudes = solicitudRepository.listaSolicitudes();
+        return listaSolicitudes
+                .stream()
+                .map(s -> SolicitudResponse.builder()
+                        .codigo(s.getCodigo())
+                        .descripcion(s.getDescripcion())
+                        .resumen(s.getResumen())
+                        .empleado(s.getEmpleado().getNombre())
+                        .build())
+                .collect(Collectors.toList());
     }
 
 }

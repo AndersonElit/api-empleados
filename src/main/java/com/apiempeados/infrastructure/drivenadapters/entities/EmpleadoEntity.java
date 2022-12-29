@@ -4,9 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Cascade;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Builder
@@ -30,8 +33,9 @@ public class EmpleadoEntity {
     @Column(name = "salario")
     private Long salario;
 
-    @OneToOne(mappedBy = "empleado")
-    private SolicitudEntity solicitud;
+    @OneToMany(mappedBy = "empleado")
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    private Set<SolicitudEntity> solicitudes = new HashSet<>();
 
 
 }

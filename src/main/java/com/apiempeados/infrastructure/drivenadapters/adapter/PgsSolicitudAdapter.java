@@ -9,6 +9,8 @@ import com.apiempeados.infrastructure.drivenadapters.entities.SolicitudEntity;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 public class PgsSolicitudAdapter implements SolicitudRepository {
@@ -24,6 +26,11 @@ public class PgsSolicitudAdapter implements SolicitudRepository {
     public Solicitud buscarSolicitud(String codigo) {
         return Mapper.map(solicitudDao.findByCodigo(codigo)
                 .orElse(new SolicitudEntity()), Solicitud.class);
+    }
+
+    @Override
+    public List<Solicitud> listaSolicitudes() {
+        return Mapper.mapAll(solicitudDao.findAll(), Solicitud.class);
     }
 
 }

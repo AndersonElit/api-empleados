@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -22,6 +23,10 @@ public class SolicitudService {
 
     public SolicitudResponse buscarSolicitud(String codigo) {
         return solicitudPort.buscarSolicitud(codigo);
+    }
+
+    public List<SolicitudResponse> listaSolicitudes() {
+        return solicitudPort.listaSolicitudes();
     }
 
 }
