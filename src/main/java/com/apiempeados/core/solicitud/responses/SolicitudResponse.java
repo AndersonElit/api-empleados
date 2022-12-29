@@ -1,6 +1,5 @@
-package com.apiempeados.core.solicitud.model;
+package com.apiempeados.core.solicitud.responses;
 
-import com.apiempeados.core.empleado.model.Empleado;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Solicitud {
-
-    private Integer id;
+public class SolicitudResponse {
 
     private String codigo;
 
@@ -20,6 +17,6 @@ public class Solicitud {
 
     private String resumen;
 
-    private Empleado empleado;
+    private String empleado;
 
 }

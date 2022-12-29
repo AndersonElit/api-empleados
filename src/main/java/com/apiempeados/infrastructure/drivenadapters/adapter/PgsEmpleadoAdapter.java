@@ -33,4 +33,9 @@ public class PgsEmpleadoAdapter implements EmpleadoRepository {
                 .orElse(new EmpleadoEntity()), Empleado.class);
     }
 
+    @Override
+    public Boolean empleadoExiste(Integer id) {
+        return empleadoDao.existsById(id);
+    }
+
 }

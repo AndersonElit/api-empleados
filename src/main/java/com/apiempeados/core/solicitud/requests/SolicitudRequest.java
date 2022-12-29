@@ -1,4 +1,4 @@
-package com.apiempeados.core.solicitud.model;
+package com.apiempeados.core.solicitud.requests;
 
 import com.apiempeados.core.empleado.model.Empleado;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Solicitud {
+public class SolicitudRequest {
 
     private Integer id;
 

@@ -13,4 +13,6 @@ public interface EmpleadoRepository {
 
     Empleado buscarEmpleado(Integer id);
 
+    Boolean empleadoExiste(Integer id);
+
 }
